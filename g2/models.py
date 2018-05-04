@@ -19,7 +19,7 @@ class Category(models.Model):
         return updated
 
     def __str__(self):
-        return self.category
+        return self.name
 
 class Location(models.Model):
     location = models.CharField(max_length=50)
@@ -62,7 +62,7 @@ class Images(models.Model):
         return updated
     
     @classmethod
-    def get_image(cls,id):
+    def get_image_by_id(cls,id):
         files = cls.objects.get(id=id)
         return files
 

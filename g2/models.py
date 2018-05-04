@@ -2,10 +2,10 @@ from django.db import models
 import datetime as dt
 # Create your models here.
 class Category(models.Model):
-   '''
-   categories = people,nature, buildings, food
-   '''
-    category = models.CharField(max_length=50)
+    '''
+    categories = people,nature, buildings, food
+    '''
+    name = models.CharField(max_length=50)
     
     def save_category(self):
         self.save()
@@ -55,5 +55,15 @@ class Images(models.Model):
     
     def delete_image(self):
         self.delete() 
-
-
+    
+    @classmethod
+    def update_image(cls,id,target,update):
+        updated = cls.objects.filter(id=id).update(target=update)
+        return updated
+    
+    @classmethod
+    def get_image(cls,id):
+        files = cls.objects.get(id=id)
+        return files
+    
+        

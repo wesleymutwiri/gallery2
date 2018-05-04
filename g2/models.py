@@ -44,8 +44,8 @@ class Images(models.Model):
     image_name = models.CharField(max_length=30, blank=True)
     image_description = models.CharField(max_length=120,blank= True)
     category = models.ManyToManyField(Category,blank=True)
-    post_date = models.DateTimeField(auto_now=True)
     location = models.ForeignKey('Location')
+    post_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-post_date']   
@@ -65,5 +65,9 @@ class Images(models.Model):
     def get_image(cls,id):
         files = cls.objects.get(id=id)
         return files
+
+    @classmethod
+    def search_by_image(cls,search_image):
+        pics = cls.objects.filter(image_name__icontains=search_image)
+        return pics
     
-        

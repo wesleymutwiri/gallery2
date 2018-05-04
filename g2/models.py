@@ -7,6 +7,9 @@ class Category(models.Model):
     '''
     name = models.CharField(max_length=50)
     
+    def __str__(self):
+        return self.name
+
     def save_category(self):
         self.save()
 
@@ -18,12 +21,13 @@ class Category(models.Model):
         updated = cls.objects.filter(id=id).update(category=update)
         return updated
 
-    def __str__(self):
-        return self.name
-
+    
 class Location(models.Model):
     location = models.CharField(max_length=50)
-    
+
+    def __str__(self):
+        return self.location
+
     def save_location(self):
         self.save()
     
@@ -35,8 +39,7 @@ class Location(models.Model):
         updated = cls.objects.filter(id=id).update(location=update)
         return updated
     
-    def __str__(self):
-        return self.location
+   
 
 class Images(models.Model):
     image = models.ImageField(upload_to = 'articles/', blank=True)
@@ -47,8 +50,8 @@ class Images(models.Model):
     location = models.ForeignKey('Location')
     post_date = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        ordering = ['-post_date']   
+    # class Meta:
+    #     ordering = ['-post_date']   
     
     def save_image(self):
         self.save()

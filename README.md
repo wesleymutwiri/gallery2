@@ -6,10 +6,11 @@ This is a simple application that is a mashup of two of the greatest and free si
 
 ## Live Demo
     
-
+Coming soon
 
 ## Description
-Splashinterest is a simple application made using python-django framework which displays images to users. The users can also search images on the site. Image links can be copied for downloading and also image description and locations can be found from the site. The images are divided into categories and each and every image has information that may be valuable to the viewers of the site. Get high quality images for free right from this site. The images are added via the admin and viewers can only view and copy image links. Uploading of images is purely the administrators work which easens the work of the user. The site doesn't require logging in. Enjoy the content 
+
+Splashinterest is a simple application made using python-django framework which displays images to users. The users can also search images on the site. Image links can be copied for downloading and also image description and locations can be found from the site. The images are divided into categories and each and every image has information that may be valuable to the viewers of the site. Get high quality images for free right from this site. The images are added via the admin and viewers can only view and copy image links. Uploading of images is purely the administrators work which easens the work of the user. The site doesn't require logging in. Enjoy the content.  
 
 ### Setup and Installation Requirements
 
@@ -27,8 +28,13 @@ There are currently no known bugs experienced on the website but feedback on bug
 
 ## Technologies used
 
-Technology used during the development of this website is git for storing progress,CSS, python3.6, heroku for deployment, and django for development.
-
+* HTML5
+* CSS
+* Bootstrap4
+* Python3.6
+* django
+* Heroku
+* Git
 ## Support and contact details
 
 Contact me on my github account

@@ -23,10 +23,10 @@ class Category(models.Model):
 
     
 class Location(models.Model):
-    location = models.CharField(max_length=50)
+    area = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.location
+        return self.area
 
     def save_location(self):
         self.save()

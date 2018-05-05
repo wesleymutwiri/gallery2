@@ -18,10 +18,10 @@ def search_images(request):
         write = request.GET.get("image")
         found = Images.search_by_image(write)
         message = f"{write}"
-        return render(request,'search.html',{"message":message,"found":found})
+        return render(request,'g2/search.html',{"message":message,"found":found})
     
     else:
         message = "No search image found within the database"
-        return render(request,'search.html',{"message":message})
+        return render(request,'g2/search.html',{"message":message})
 
         

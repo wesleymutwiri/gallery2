@@ -5,10 +5,10 @@ class Category(models.Model):
     '''
     categories = people,nature, buildings, food
     '''
-    name = models.CharField(max_length=50)
+    category = models.CharField(max_length=50)
     
     def __str__(self):
-        return self.name
+        return self.category
 
     def save_category(self):
         self.save()
@@ -42,13 +42,13 @@ class Location(models.Model):
    
 
 class Images(models.Model):
-    image = models.ImageField(upload_to = 'articles/', blank=True)
-    image_url = models.TextField(blank=True)
+    image_url = models.CharField(max_length=100, blank=True)
     image_name = models.CharField(max_length=30, blank=True)
     image_description = models.CharField(max_length=120,blank= True)
     category = models.ManyToManyField(Category,blank=True)
-    location = models.ForeignKey('Location')
-    post_date = models.DateTimeField(auto_now=True)
+    location = models.ForeignKey(Location,)
+    pub_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to = 'articles/', blank=True)
 
     # class Meta:
     #     ordering = ['-post_date']   

@@ -4,3 +4,5 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'g2/index.html')
 
+def present(request):
+    return render(request, 'g2/present.html')

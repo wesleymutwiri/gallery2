@@ -1,13 +1,16 @@
 from django.test import TestCase
 from .models import Location,Category, Images
 # Create your tests here.
+class Category(TestCase):
+    def setUp(self):
+        self.cat = Category(category="categoryx")
 class LocationTestClass(TestCase):
     def setUp(self):
-        self.loc = Location(location="locationx")
+        self.loc = Location(area="locationx")
     def test_instance(self):
-        self.asserTrue(isinstance(self.loc, Location))
+        self.assertTrue(isinstance(self.loc, Location))
 
-    def 
+
 class ImageTestClass(TestCase):
     '''
    image = models.ImageField(upload_to = 'articles/', blank=True)
@@ -22,4 +25,11 @@ class ImageTestClass(TestCase):
     models to test
     '''
     def setUp(self):
-        self.images = Images(image_name='image', image_description='party at the beach',image_url="urlx", location="locationx")
+        self.images = Images(image_name='image', image_description='party at the beach',image_url="urlx",)
+        self.images.save_editor()
+    
+    def teardown(self):
+        Images.objects.all().delete()
+        Category.objects.all().delete()
+        Location.objects.all().delete()
+    

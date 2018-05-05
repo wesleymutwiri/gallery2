@@ -1,8 +1,29 @@
 {%extends 'g2/base.html'%} 
 {%block content%}
+<div class="container">
+
+    <h1 class="text-center"> SplashInterest</h1>
+
+
+</div>
 <div class="container-fluid">
+<div class="row">
+    {%for image in image %}
+    <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+        {%if image.image %}
+        <div class="overlay">
+            <a href="#" class="btn btn-success">Show more</a>
+        </div>
+        <img src="{{image.image.url}}" alt="test" class="img-fluid button{{.id}}">
 
-    <h1>Hello World</h1>
+        {%endif%}
+        {% empty %}
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Sorry, There are no photos to display... Try again later</h1>
 
+        </div>
+        {% endfor %}
+    </div>
+</div>
 </div>
 {%endblock%}

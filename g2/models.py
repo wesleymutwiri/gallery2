@@ -42,16 +42,16 @@ class Location(models.Model):
    
 
 class Images(models.Model):
-    image_url = models.CharField(max_length=100, blank=True)
+    # image_url = models.CharField(max_length=100, blank=True)
     image_name = models.CharField(max_length=30, blank=True)
     image_description = models.CharField(max_length=120,blank= True)
     category = models.ManyToManyField(Category,blank=True)
-    location = models.ForeignKey(Location,)
+    location = models.ForeignKey('Location',)
     pub_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to = 'articles/', blank=True)
 
-    # class Meta:
-    #     ordering = ['-post_date']   
+    class Meta:
+        ordering = ['-pub_date']   
     
     def save_image(self):
         self.save()
@@ -61,13 +61,18 @@ class Images(models.Model):
     
     @classmethod
     def update_image(cls,id,target,update):
-        updated = cls.objects.filter(id=id).update(target=update)
-        return updated
+        update = cls.objects.filter(id=id).update(target=update)
+        return update
     
     @classmethod
+    def get_all_images(cls):
+        images = cls.objects.order_by('-pub_date')
+        return images
+
+    @classmethod
     def get_image_by_id(cls,id):
-        files = cls.objects.get(id=id)
-        return files
+        image = cls.objects.get(id=id)
+        return image
 
     @classmethod
     def search_by_image(cls,search_image):

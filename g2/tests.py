@@ -7,9 +7,14 @@ class Category(TestCase):
 class LocationTestClass(TestCase):
     def setUp(self):
         self.loc = Location(area="locationx")
+    
     def test_instance(self):
         self.assertTrue(isinstance(self.loc, Location))
-
+    
+    def test_save_method(self):
+        self.loc.save_location()
+        locas = Location.objects.all()
+        self.assertTrue(len(locas) > 0)
 
 class ImageTestClass(TestCase):
     '''

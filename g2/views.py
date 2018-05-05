@@ -5,4 +5,5 @@ def index(request):
     return render(request, 'g2/index.html')
 
 def present(request):
-    return render(request, 'g2/present.html')
+    image = Image.get_image(image_id)
+    return render(request, 'g2/present.html', {"image":image})

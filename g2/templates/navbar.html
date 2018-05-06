@@ -2,9 +2,8 @@
     <a class="navbar-brand" href="#">Sticky top</a>
     
     <div class="col-sm-4 col-md-4 navbar-right">
-        <form action="{% url 'search_images'%}" class="navbar-form" role="search">
-            
-            <div class="form-group">
+        <form action="{% url 'search_images'%}" class="navbar-form" role="search" >
+            <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for image" name="category">
                 <div class="input-group-btn">
                     <button class="btn btn-success" type="submit">

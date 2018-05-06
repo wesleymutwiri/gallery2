@@ -2,18 +2,20 @@
 {%block content%}
 <div class="container-fluid">
     <div class="row">
-    {%if articles %}
-    <h2>Found {{image|length}} of searched term {{message}}</h2>
+    {%if searched_images %}
+    <h2>Found {{ searched_images|length }} of searched term {{ message }}</h2>
     
     {%else%}
     <h2>Found 0 images from the search term {{message}}</h2>
     {%endif %}
+
 </div>
+
 <div class="row">
-    {%if image %}
-    {%for image in image%}
+    {%if searched_images %}
+    {%for image in searched_images%}
     <div class="col-sm-9 col-md-6 col-lg-3 col-xs-12" >
-        <h1>{{image.name}}</h1>
+        <a href="{%url 'details' image.id"><h1>{{image.image_name}}</h1></a>
     </div>
     {%endfor%}
     {%endif%}

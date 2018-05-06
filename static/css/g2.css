@@ -3,18 +3,19 @@
 and #E0FF4F */
 body{
     font-family: 'Gugi', cursive;
-    background-color: 00272B;
-    color: white;
+    background-color: #00272B;
+    color: #E0FF4F;
     background-attachment: fixed;
     
 }
-#myImg{
+img{
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+
 }
 
-#myImg:hover{
+img:hover{
     opacity: 0.7;
 }
 .modal{

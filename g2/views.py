@@ -18,7 +18,7 @@ def search_images(request):
         write = request.GET.get("image")
         found = Images.search_by_image(write)
         message = f"{write}"
-        return render(request,'g2/search.html',{"message":message,"found":found})
+        return render(request,'g2/search.html',{"message":message,"image":found})
     
     else:
         message = "No such image found within the database"
@@ -35,7 +35,7 @@ def search_locations(request):
         message = "No such location found in the database "
         return render(request,'g2/location.html',{"message":message})
 
-def view_information(request):
-    view = Images.get_all_images()
-    return render(request, 'g2/images.html',{"date":date "view":view })
+# def view_information(request):
+#     show = Images.get_all_images()
+#     return render(request, 'g2/images.html',{"date":date, "show":show })
         

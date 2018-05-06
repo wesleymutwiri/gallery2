@@ -20,7 +20,7 @@ class Category(models.Model):
     def update_category(cls,id,location,update):
         updated = cls.objects.filter(id=id).update(category=update)
         return updated
-
+    
     
 class Location(models.Model):
     area = models.CharField(max_length=50)
@@ -78,4 +78,4 @@ class Images(models.Model):
     def search_by_image(cls,search_image):
         pics = cls.objects.filter(image_name__icontains=search_image)
         return pics
-    
+   

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Images, Category, Location
 import datetime as dt
 
@@ -6,7 +6,7 @@ import datetime as dt
 
 def index(request):
     date=dt.date.today
-    image = Images.get_all_images()
+    image = Images.objects.all()
     return render(request, 'g2/index.html', {"date":date, "image":image})
 
 def present(request, image_id):
@@ -14,15 +14,17 @@ def present(request, image_id):
     return render(request, 'g2/present.html', {"image":image})
 
 def search_images(request):
-    if 'image' in request.GET and request.GET["image"]:
-        write = request.GET.get("image")
-        found = Images.search_by_image(write)
-        message = f"{write}"
-        return render(request,'g2/search.html',{"message":message,"image":found})
-    
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
+        searched_images = Image.search_by_title(search_term)
+        print(searched_images)
+        message = f"{search_term}"
+
+        return render(request, 'g2/search.html', {"message": message, "searched_images": searched_images})
+
     else:
-        message = "No such image found within the database"
-        return render(request,'g2/search.html',{"message":message})
+        message = "You haven't searched for any term"
+        return render(request, 'g2/search.html',{"message":message})
 
 def search_locations(request):
     if image in request.GET and request.GET["image"]:
@@ -38,4 +40,6 @@ def search_locations(request):
 # def view_information(request):
 #     show = Images.get_all_images()
 #     return render(request, 'g2/images.html',{"date":date, "show":show })
-        
+def details(request, image_id):
+    image = get_object_or_404(Image, pk=image_id)
+    return render(request, 'g2/details.html', {'image': image})

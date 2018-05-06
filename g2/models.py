@@ -73,7 +73,7 @@ class Images(models.Model):
     def get_image_by_Id(cls, image_id):
       return cls.objects.get(pk=image_id)
 
-   @classmethod
+    @classmethod
     def search_by_title(cls, search_term):
         img = cls.objects.filter(category__category__icontains=search_term)
         return img
@@ -83,7 +83,7 @@ class Images(models.Model):
     #     images = cls.objects.filter(location__location_area__icontains=location).all()
     #     return images
     
-   @classmethod
+    @classmethod
     def search_category(cls, categorys_name):
         return cls.objects.filter(category__category=categorys_name)
     

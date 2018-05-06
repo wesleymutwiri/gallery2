@@ -12,23 +12,43 @@
     {%for image in image %}
     
     <div class="col-xs-3 col-md-9 col-sm-6 col-lg-12">
-        {%if image.image %}
-        <div class="overlay">
-
-      </div>
+       
+    
       
-      <div class="card">
-        <img id="myImg" src="{{image.image.url}}" alt="" height="800" width="1200">
-        <button> View More</button>
-        </div>
-        
-        <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="img01">
-            <div id="caption"></div>
-        </div>
      
-        {%endif%}
+        <img src="{{image.image.url}}" alt="" height="800" width="1200" class="img img-responsive img-thumbnail" data-target="#myModal{{forloop.counter}}">
+        <button> View More</button>
+        <div id="myModal{{forloop.counter}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{image.image_name}}</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="{{image.image.url}}" class="img img-responsive img-responsive">
+                    <br>
+                    <br>
+                    <p class="lead">Category:
+                        <span class="label label-default">{{image.category}}</span>
+                    </p>
+                    <p class=" lead">{{image.image_description}}.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'details' image.id%}">
+                        <button type="button" class="btn btn-primary">View Full</button>
+                    </a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        
+        </div>
+        </div>
+
+            
+        
         {% empty %}
         
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -40,4 +60,4 @@
     </div>
 </div>
 </div>
-{%endblock%}
+{%endblock%} 

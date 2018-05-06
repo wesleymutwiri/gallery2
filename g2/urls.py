@@ -6,6 +6,7 @@ urlpatterns =[
     url(r'^$', views.index, name='index'),
     url(r'^search/', views.search_images, name = 'search_images'),
     # url(r'^description/', views.view_information, name = 'show'),
+    url(r'^details/(?P<image_id>[0-9]+)/$', views.details, name='details'),
 ]    
 
 if settings.DEBUG:

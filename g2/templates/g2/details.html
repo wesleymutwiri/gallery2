@@ -1,0 +1,25 @@
+{%extends 'g2/base.html' %}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3 col-md-9 col-sm-6 col-lg-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <h4>Image Description</h4>
+                    {{Image.image_description }}
+                    <p class="badge">Location: {{Image.location}}/p>
+                        <p class="badge">Category: {{Image.category}}</p>
+
+                </div>
+                <div class="panel-footer">
+                    <p>%copy;{{image.pub_date}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <img src="{{image.image.url}}" alt="" class="img img-responsive img-rounded img-thumbnail">
+        </div>
+    </div>
+</div>
+{% endblock %}

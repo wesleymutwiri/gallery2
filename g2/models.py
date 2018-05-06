@@ -70,23 +70,27 @@ class Images(models.Model):
         return images
 
     @classmethod
-    def get_image_by_id(cls,id):
-        image = cls.objects.get(id=id)
-        return image
+    def get_image_by_Id(cls, image_id):
+      return cls.objects.get(pk=image_id)
 
-    @classmethod
-    def search_by_image(cls,search_image):
-        pics = cls.objects.filter(image_name__icontains=search_image)
-        return pics
+   @classmethod
+    def search_by_title(cls, search_term):
+        img = cls.objects.filter(category__category__icontains=search_term)
+        return img
+
+    # @classmethod
+    # def get_image_by_location(cls,location):
+    #     images = cls.objects.filter(location__location_area__icontains=location).all()
+    #     return images
+    
+   @classmethod
+    def search_category(cls, categorys_name):
+        return cls.objects.filter(category__category=categorys_name)
     
     @classmethod
-    def get_image_by_location(cls,location):
-        images = cls.objects.filter(location__location_area__icontains=location).all()
-        return images
-    
-    @classmethod
-    def search_category(cls,search_category):
-        image = cls.objects.filter(category__icontains=search_category).all()
-        return image
+    def filter_by_location(cls, location):
+        return cls.objects.filter(location=location)
+
+
 
    

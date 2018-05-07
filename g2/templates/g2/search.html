@@ -15,7 +15,7 @@
     {%if searched_images %}
     {%for image in searched_images%}
     <div class="col-sm-9 col-md-6 col-lg-3 col-xs-12" >
-        <a href="{%url 'details' image.id"><h1>{{image.image_name}}</h1></a>
+        <a href="{% url 'details' image.id%}"><h1>{{image.image_name}}</h1></a>
     </div>
     {%endfor%}
     {%endif%}

@@ -1,4 +1,4 @@
-![g2](Screenshot from 2018-05-07 17-41-51.png)
+![Gallery2](gallery.png)
 # Splashinterest
 
 This is a simple application that is a mashup of two of the greatest and free sites for getting images. Splashinterest provides all of the features of the sites mentioned and just a bit more. 

@@ -12,13 +12,13 @@ img{
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-
+    height:800;
 }
 
 img:hover{
     opacity: 0.7;
 }
-.modal{
+/* .modal{
     display: none;
     position: fixed;
     z-index: 1;
@@ -36,7 +36,7 @@ img:hover{
     display: block;
     width:80%;
     max-width:700px;
-}
+} */
 
 #caption{
     margin:auto;
@@ -50,14 +50,14 @@ img:hover{
 
 
 }
-.modal-content, #caption{
+/* .modal-content, #caption{
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
-}
+} */
 
-@-webkit-keyframes zoom {
+/* @-webkit-keyframes zoom {
     from {-webkit-transform:scale(0)} 
     to {-webkit-transform:scale(1)}
 }
@@ -87,9 +87,9 @@ img:hover{
     .modal-content{
         width:100%;
     }
-}
+}  */
 
-/* .loader {
+ /* .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid blue;

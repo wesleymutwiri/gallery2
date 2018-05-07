@@ -11,9 +11,9 @@
 <div class="row">
     {%for image in image %}
     <center>
-    <div class="col-xs-3 col-md-9 col-sm-6 col-lg-12">
+    <div class="col-xs-3 col-md-6 col-sm-6 col-lg-6">
        
-        <p><img src="{{image.image.url}}" alt="" height="800" class="img img-responsive img-thumbnail" data-target="#myModal{{forloop.counter}}">
+        <p><img src="{{image.image.url}}" alt=""  class="img img-responsive img-thumbnail" data-target="#myModal{{forloop.counter}}" data-toggle="modal">
         </p> </center>
         <div id="myModal{{forloop.counter}}" class="modal fade" role="dialog">
         <div class="modal-dialog">

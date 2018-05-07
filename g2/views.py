@@ -16,7 +16,7 @@ def present(request, image_id):
 def search_images(request):
     if 'category' in request.GET and request.GET["category"]:
         search_term = request.GET.get("category")
-        searched_images = Image.search_by_title(search_term)
+        searched_images = Images.search_by_title(search_term)
         print(searched_images)
         message = f"{search_term}"
 
@@ -41,5 +41,5 @@ def search_locations(request):
 #     show = Images.get_all_images()
 #     return render(request, 'g2/images.html',{"date":date, "show":show })
 def details(request, image_id):
-    image = get_object_or_404(Image, pk=image_id)
+    image = get_object_or_404(Images, pk=image_id)
     return render(request, 'g2/details.html', {'image': image})

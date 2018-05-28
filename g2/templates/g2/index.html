@@ -1,4 +1,5 @@
 {%extends 'g2/base.html'%} 
+{%load static %}
 {%block content%}
 <div class="loader"></div>
 <div class="container">
@@ -11,18 +12,18 @@
 <div class="row">
     {%for image in image %}
     <center>
-    <div class="col-xs-3 col-md-6 col-sm-6 col-lg-6">
-       
-        <p><img src="{{image.image.url}}" alt=""  class="img img-responsive img-thumbnail" data-target="#myModal{{forloop.counter}}" data-toggle="modal">
+    <div class="col-xs-3 col-md-6 col-sm-6 col-lg-6" style="padding-left: 100px">
+        <p><img src="{{image.image.url}}" alt=""  class="img img-responsive img-thumbnail" data-target="#myModal{{forloop.counter}}" data-toggle="modal" id= "foo" style="height: 700; width:1600; ">
         </p> </center>
         <div id="myModal{{forloop.counter}}" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    
-                    <h4 class="modal-title text-center">{{image.image_name}}</h4>
-                </div>
-                <div class="modal-body">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        
+                        
+                        <h4 class="modal-title text-center">{{image.image_name}}</h4>
+                    </div>
+                    <div class="modal-body">
                     <img src="{{image.image.url}}" class="img-fluid">
                     <br>
                     <br>
@@ -36,6 +37,9 @@
                         <button type="button" class="btn btn-primary">View Full</button>
                     </a>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button class="btn" data-clipboard-text="{{image.image_url}}">
+                        Copy image url
+                    </button>
                 </div>
             </div>
         
